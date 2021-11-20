@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <h1>Search movies on Netflix</h1>
+    <form class="search" method="post" action="">
+        <input type="text" placeholder="Search by name, cast or director of movie" name="movie">
+        <button type="submit">Search</button>
+    </form>
+    <p></p>
+    <table class="my_table">
+        <tr>
+            <th>Movie</th>
+            <th>Director</th>
+            <th>Cast</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td class="movie">{{item['_source']['title']}}</td>
+            <td class="movie">{{item['_source']['director']}}</td>
+            <td class="movie">{{item['_source']['cast']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
